@@ -1,0 +1,270 @@
+:root {
+	--color-primary: #e8999f;
+	--color-secondry: #009d95;
+	--color-white: #ffffff;
+	--color-black: #303030;
+	--font-family-heading: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+		Ubuntu, Helvetica Neue, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+		Segoe UI Symbol;
+	--font-family-text: Futura, sans-serif;
+}
+
+html {
+	background-color: var(--color-white);
+	color: var(--color-black);
+	box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+.hidden {
+	display: none;
+}
+
+/* Typography */
+
+body {
+	font-family: var(--font-family-text);
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-family-heading);
+}
+
+/* Links */
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* List */
+
+ul,
+ol {
+	list-style: none;
+	padding: 0;
+}
+
+/* Buttons */
+
+button {
+	background: none;
+	border: 0;
+	cursor: pointer;
+}
+
+.btn {
+	padding: 14px 20px;
+	font-weight: 100;
+	letter-spacing: 0.15rem;
+	font-size: 0.8rem;
+	font-family: var(--font-family-heading);
+}
+
+.btn.btn--primary {
+	color: var(--color-white);
+	background-color: var(--color-primary);
+}
+
+.btn.btn--secondry {
+	color: var(--color-white);
+	background-color: var(--color-secondry);
+}
+
+.btn.btn--rounded {
+	font-family: var(--font-family-text);
+	letter-spacing: 0;
+	font-size: 0.94rem;
+	border-radius: 30px;
+	display: flex;
+	gap: 0.7rem;
+}
+
+.btn.btn.btn--rounded > i {
+	font-size: 1.3rem;
+}
+
+.btn.btn--icon-only {
+	width: 56px;
+	height: 56px;
+}
+.btn.btn--icon-only.xxl > i {
+	position: relative;
+	top: 2px;
+	left: -2px;
+	transform: scale(1.8);
+}
+
+.btn.btn--fixed {
+	position: fixed;
+	z-index: 12;
+}
+
+.btn.btn--fixed.bottom-left {
+	left: 30px;
+	bottom: 20px;
+}
+
+.btn.btn--fixed.bottom-right {
+	right: 30px;
+	bottom: 20px;
+}
+
+/* Navbar */
+
+.navbar {
+	color: var(--color-secondry);
+	font-size: 1.4rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 30px;
+}
+
+.navbar__toggler {
+	background: none;
+	border: 0;
+	color: inherit;
+	padding: 0;
+}
+
+.nav-main .navbar__toggler {
+	color: var(--color-black);
+	font-size: 1.5rem;
+}
+
+.navbar__brand {
+	height: 25.5px;
+	width: 145px;
+	background-image: url('https://planet-skin.com/cdn/shop/files/Logo-PlanetSkin-2_145x@2x.png?v=1635603819');
+	background-size: cover;
+	position: absolute;
+	left: calc(50% - 72.5px);
+}
+
+.nav-main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 11;
+	background-color: var(--color-white);
+	width: 320px;
+	padding: 15px 30px;
+	height: 100vh;
+	font-size: 1.1rem;
+}
+
+.nav-main__list {
+	display: flex;
+	flex-direction: column;
+}
+
+.nav-main__list a {
+	border-bottom: 1px solid var(--color-secondry);
+	display: block;
+	padding: 15px 24px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-main__list a:hover {
+	color: var(--color-primary);
+}
+
+.nav-user__list {
+	display: flex;
+	gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+	.navbar__toggler {
+		display: none;
+	}
+
+	.navbar__brand,
+	.nav-main {
+		position: static;
+	}
+	.navbar__brand {
+		min-width: 145px;
+	}
+	.nav-main {
+		width: auto;
+		height: auto;
+	}
+
+	.nav-main__list {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.nav-main__list a {
+		border: 0;
+		gap: 0.5rem;
+	}
+}
+
+/*  Collapsible */
+
+.collapsible {
+	left: -320px;
+	transition: left 0.5s ease-in-out;
+}
+
+.collapsible--expanded {
+	left: 0;
+}
+
+/* Hero */
+
+.hero {
+	border: 1px solid var(--color-primary);
+	position: relative;
+	color: var(--color-white);
+}
+
+.hero::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+
+	background: linear-gradient(rgba(22, 22, 22, 0.3), rgba(22, 22, 22, 0.8));
+}
+
+.hero__image {
+	width: 100vw;
+}
+
+.hero__title,
+.hero__description {
+	text-transform: uppercase;
+	font-weight: 200;
+}
+
+.hero__title {
+	font-size: 0.7rem;
+	letter-spacing: 0.2rem;
+}
+
+.hero__description {
+	font-size: 1.4rem;
+	letter-spacing: 0.2rem;
+	line-height: 2rem;
+}
+
+.hero__content {
+	position: absolute;
+	bottom: 10%;
+	z-index: 4;
+	padding: 24px;
+}
